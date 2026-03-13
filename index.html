@@ -724,6 +724,86 @@
             font-size: 0.95rem;
         }
 
+        /* Coming Soon Section */
+        .coming-soon {
+            background: rgba(255,255,255,0.02);
+        }
+
+        .coming-soon-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .coming-soon-card {
+            background: linear-gradient(145deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.02) 100%);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 20px;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .coming-soon-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            transform: scaleX(0);
+            transition: transform 0.4s ease;
+        }
+
+        .coming-soon-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .coming-soon-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(255,107,53,0.3);
+        }
+
+        .coming-soon-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, rgba(255,107,53,0.2) 0%, rgba(255,217,61,0.2) 100%);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: var(--primary);
+            margin: 0 auto 1.2rem;
+        }
+
+        .coming-soon-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .coming-soon-card p {
+            color: var(--gray);
+            font-size: 0.9rem;
+            margin-bottom: 1.2rem;
+            line-height: 1.6;
+        }
+
+        .coming-soon-badge {
+            display: inline-block;
+            background: rgba(255,107,53,0.15);
+            color: var(--primary);
+            padding: 0.4rem 0.8rem;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
         /* Demos Section */
         .demos-grid {
             display: grid;
@@ -1321,6 +1401,7 @@
         <ul class="nav-links">
             <li><a href="#features">Özellikler</a></li>
 
+            <li><a href="#coming-soon">Yakında</a></li>
             <li><a href="#how-it-works">Nasıl Çalışır?</a></li>
             <li><a href="#demos">Canlı Demolar</a></li>
 
@@ -1340,7 +1421,7 @@
                     Yeni Nesil QR Menü Çözümleri
                 </div>
                 <h1>Restoranınızı <span>Dijitalleştirin</span></h1>
-                <p>Modern, şık ve kullanıcı dostu QR menü çözümleri ile müşteri deneyimini bir üst seviyeye taşıyın. Temassız sipariş, anlık güncelleme ve profesyonel tasarım.</p>
+                <p>Modern, şık ve kullanıcı dostu QR menü çözümleri ile müşteri deneyimini bir üst seviyeye taşıyın. Profesyonel tasarım ve kolay kullanım.</p>
                 <div class="hero-buttons">
                     <a href="#demos" class="btn-primary">
                         <i class="fas fa-eye"></i>
@@ -1434,12 +1515,55 @@
         </div>
     </section>
 
+    <!-- Coming Soon Section -->
+    <section class="coming-soon" id="coming-soon">
+        <div class="section-header animate-on-scroll">
+            <span class="section-tag">Yakında</span>
+            <h2 class="section-title">Çok <span>Yakında</span></h2>
+            <p class="section-desc">Üzerinde çalıştığımız yeni özellikler ve projeler. Siz de fikirlerinizi bizimle paylaşın!</p>
+        </div>
+        <div class="coming-soon-grid">
+            <div class="coming-soon-card animate-on-scroll">
+                <div class="coming-soon-icon">
+                    <i class="fas fa-shopping-cart"></i>
+                </div>
+                <h3>Online Sipariş</h3>
+                <p>Müşterileriniz menüden doğrudan sipariş verebilecek. Masaya servis veya paket sipariş seçenekleri.</p>
+                <span class="coming-soon-badge">Geliştirme Aşamasında</span>
+            </div>
+            <div class="coming-soon-card animate-on-scroll">
+                <div class="coming-soon-icon">
+                    <i class="fas fa-credit-card"></i>
+                </div>
+                <h3>Online Ödeme</h3>
+                <p>Kredi kartı ve dijital cüzdan entegrasyonu ile güvenli ödeme sistemi.</p>
+                <span class="coming-soon-badge">Planlama Aşamasında</span>
+            </div>
+            <div class="coming-soon-card animate-on-scroll">
+                <div class="coming-soon-icon">
+                    <i class="fas fa-chart-bar"></i>
+                </div>
+                <h3>Detaylı Analitik</h3>
+                <p>Hangi ürünler popüler, hangi saatler yoğun - kapsamlı raporlar ve istatistikler.</p>
+                <span class="coming-soon-badge">Test Aşamasında</span>
+            </div>
+            <div class="coming-soon-card animate-on-scroll">
+                <div class="coming-soon-icon">
+                    <i class="fas fa-bell"></i>
+                </div>
+                <h3>Kampanya Yönetimi</h3>
+                <p>İndirimler, özel gün kampanyaları ve sadakat programları için yönetim paneli.</p>
+                <span class="coming-soon-badge">Planlama Aşamasında</span>
+            </div>
+        </div>
+    </section>
+
     <!-- How It Works -->
     <section class="how-it-works" id="how-it-works">
         <div class="section-header animate-on-scroll">
             <span class="section-tag">Süreç</span>
             <h2 class="section-title">Nasıl <span>Çalışır?</span></h2>
-            <p class="section-desc">3 basit adımda QR menünüz hazır. Hızlı, kolay ve profesyonel.</p>
+            <p class="section-desc">Temassız sipariş, anlık güncelleme ve profesyonel tasarım. 3 basit adımda QR menünüz hazır.</p>
         </div>
         <div class="steps">
             <div class="step animate-on-scroll">
