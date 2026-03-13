@@ -724,6 +724,163 @@
             font-size: 0.95rem;
         }
 
+        /* Testimonials Section */
+        .testimonials {
+            background: rgba(255,255,255,0.02);
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .testimonial-card {
+            background: linear-gradient(145deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.02) 100%);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 24px;
+            padding: 2rem;
+            transition: all 0.4s ease;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(255,107,53,0.3);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+
+        .testimonial-stars {
+            color: var(--accent);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .testimonial-text {
+            color: var(--light);
+            font-size: 1rem;
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+            font-style: italic;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .testimonial-avatar {
+            width: 50px;
+            height: 50px;
+            background: var(--gradient-1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.2rem;
+            color: white;
+        }
+
+        .testimonial-author h4 {
+            font-size: 1rem;
+            margin-bottom: 0.2rem;
+        }
+
+        .testimonial-author span {
+            font-size: 0.85rem;
+            color: var(--gray);
+        }
+
+        /* Testimonial Form */
+        .testimonial-form-container {
+            max-width: 600px;
+            margin: 0 auto 3rem;
+            background: linear-gradient(145deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.02) 100%);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 24px;
+            padding: 2rem;
+        }
+
+        .testimonial-form-container h3 {
+            text-align: center;
+            margin-bottom: 1.5rem;
+            font-size: 1.3rem;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .star-rating-input {
+            display: flex;
+            flex-direction: row-reverse;
+            justify-content: flex-end;
+            gap: 0.5rem;
+        }
+
+        .star-rating-input input {
+            display: none;
+        }
+
+        .star-rating-input label {
+            font-size: 1.5rem;
+            color: rgba(255,255,255,0.3);
+            cursor: pointer;
+            transition: color 0.2s ease;
+        }
+
+        .star-rating-input label:hover,
+        .star-rating-input label:hover ~ label,
+        .star-rating-input input:checked ~ label {
+            color: var(--accent);
+        }
+
+        .testimonial-form-container .form-group {
+            margin-bottom: 1.2rem;
+        }
+
+        .testimonial-form-container label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .testimonial-form-container input,
+        .testimonial-form-container textarea {
+            width: 100%;
+            padding: 0.8rem 1rem;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 12px;
+            color: white;
+            font-size: 0.95rem;
+            font-family: inherit;
+        }
+
+        .testimonial-form-container input:focus,
+        .testimonial-form-container textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+            background: rgba(255,255,255,0.08);
+        }
+
+        .testimonial-form-container textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+
+        @media (max-width: 768px) {
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+        }
+
         /* Coming Soon Section */
         .coming-soon {
             background: rgba(255,255,255,0.02);
@@ -1403,6 +1560,7 @@
 
             <li><a href="#coming-soon">Yakında</a></li>
             <li><a href="#how-it-works">Nasıl Çalışır?</a></li>
+            <li><a href="#testimonials">Referanslar</a></li>
             <li><a href="#demos">Canlı Demolar</a></li>
 
         </ul>
@@ -1647,6 +1805,59 @@
         </div>
     </section>
 
+    <!-- Testimonials Section -->
+    <section class="testimonials" id="testimonials">
+        <div class="section-header animate-on-scroll">
+            <span class="section-tag">Referanslar</span>
+            <h2 class="section-title">Müşterilerimiz <span>Ne Diyor?</span></h2>
+            <p class="section-desc">Siz de deneyiminizi paylaşın, diğerleri görsün!</p>
+        </div>
+        
+        <!-- Yorum Ekleme Formu -->
+        <div class="testimonial-form-container animate-on-scroll">
+            <h3>Yorumunuzu Bırakın</h3>
+            <form id="testimonialForm">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Adınız</label>
+                        <input type="text" id="reviewerName" placeholder="Ad Soyad" required>
+                    </div>
+                    <div class="form-group">
+                        <label>İşletme</label>
+                        <input type="text" id="reviewerBusiness" placeholder="Restoran/Kafe Adı">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Puanınız</label>
+                    <div class="star-rating-input">
+                        <input type="radio" id="star5" name="rating" value="5" required>
+                        <label for="star5"><i class="fas fa-star"></i></label>
+                        <input type="radio" id="star4" name="rating" value="4">
+                        <label for="star4"><i class="fas fa-star"></i></label>
+                        <input type="radio" id="star3" name="rating" value="3">
+                        <label for="star3"><i class="fas fa-star"></i></label>
+                        <input type="radio" id="star2" name="rating" value="2">
+                        <label for="star2"><i class="fas fa-star"></i></label>
+                        <input type="radio" id="star1" name="rating" value="1">
+                        <label for="star1"><i class="fas fa-star"></i></label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Yorumunuz</label>
+                    <textarea id="reviewerComment" placeholder="Deneyiminizi paylaşın..." required></textarea>
+                </div>
+                <button type="submit" class="btn-primary">
+                    <i class="fas fa-paper-plane"></i> Yorum Gönder
+                </button>
+            </form>
+        </div>
+
+        <!-- Yorumlar Listesi -->
+        <div class="testimonials-grid" id="testimonialsList">
+            <!-- Yorumlar JavaScript ile buraya eklenecek -->
+        </div>
+    </section>
+
 
 
     <!-- Floating WhatsApp Button -->
@@ -1671,6 +1882,7 @@
                 <ul>
                     <li><a href="#features">Özellikler</a></li>
         
+                    <li><a href="#testimonials">Referanslar</a></li>
                     <li><a href="#demos">Canlı Demolar</a></li>
         
                 </ul>
@@ -1728,12 +1940,91 @@
             observer.observe(el);
         });
 
-        // Form submission
-        document.getElementById('contactForm').addEventListener('submit', (e) => {
+        // Testimonials System
+        const testimonialsList = document.getElementById('testimonialsList');
+        const testimonialForm = document.getElementById('testimonialForm');
+
+        // Load testimonials from localStorage
+        function loadTestimonials() {
+            const saved = localStorage.getItem('croxst_testimonials');
+            return saved ? JSON.parse(saved) : [];
+        }
+
+        // Save testimonials to localStorage
+        function saveTestimonials(testimonials) {
+            localStorage.setItem('croxst_testimonials', JSON.stringify(testimonials));
+        }
+
+        // Render testimonials
+        function renderTestimonials() {
+            const testimonials = loadTestimonials();
+            testimonialsList.innerHTML = '';
+            
+            if (testimonials.length === 0) {
+                testimonialsList.innerHTML = '<p style="text-align: center; color: var(--gray); grid-column: 1/-1;">Henüz yorum yapılmamış. İlk yorumu siz bırakın!</p>';
+                return;
+            }
+
+            testimonials.reverse().forEach(t => {
+                const card = document.createElement('div');
+                card.className = 'testimonial-card';
+                card.innerHTML = `
+                    <div class="testimonial-stars">
+                        ${Array(5).fill(0).map((_, i) => 
+                            `<i class="fas fa-star" style="color: ${i < t.rating ? 'var(--accent)' : 'rgba(255,255,255,0.2)'}"></i>`
+                        ).join('')}
+                    </div>
+                    <p class="testimonial-text">"${t.comment}"</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">${t.name.charAt(0).toUpperCase()}</div>
+                        <div>
+                            <h4>${t.name}</h4>
+                            <span>${t.business || 'Müşteri'}</span>
+                        </div>
+                    </div>
+                `;
+                testimonialsList.appendChild(card);
+            });
+        }
+
+        // Handle form submission
+        testimonialForm.addEventListener('submit', (e) => {
             e.preventDefault();
-            alert('Mesajınız gönderildi! En kısa sürede size dönüş yapacağız.');
-            e.target.reset();
+            
+            const name = document.getElementById('reviewerName').value;
+            const business = document.getElementById('reviewerBusiness').value;
+            const rating = document.querySelector('input[name="rating"]:checked')?.value || 5;
+            const comment = document.getElementById('reviewerComment').value;
+
+            const newTestimonial = {
+                name,
+                business,
+                rating: parseInt(rating),
+                comment,
+                date: new Date().toISOString()
+            };
+
+            const testimonials = loadTestimonials();
+            testimonials.push(newTestimonial);
+            saveTestimonials(testimonials);
+
+            renderTestimonials();
+            testimonialForm.reset();
+            
+            alert('Yorumunuz kaydedildi! Teşekkür ederiz.');
         });
+
+        // Initial render
+        renderTestimonials();
+
+        // Delete testimonial by name (run in console: deleteTestimonial('Hüseyin Berk'))
+        window.deleteTestimonial = function(name) {
+            const testimonials = loadTestimonials();
+            const filtered = testimonials.filter(t => t.name !== name);
+            saveTestimonials(filtered);
+            renderTestimonials();
+            console.log('Yorum silindi: ' + name);
+        };
 
         // Smooth scroll for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
